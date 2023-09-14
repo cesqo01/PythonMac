@@ -5,8 +5,8 @@
 
 import random
 
-x = random.randint(1, 10)
-y = random.randint(1, 10)
+x = random.randint(1, 1001)
+y = random.randint(1, 1001)
 print(x, y)
 
 sum = x + y
