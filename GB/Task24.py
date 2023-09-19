@@ -51,7 +51,7 @@ for i in range(len(berrys)):
 
     elif berrys[i] + berrys[i + 1] + berrys[i + 2] > berrys[i] + berrys[i + 1] + berrys[i - 1]:
         big_bush = berrys[i] + berrys[i + 1] + berrys[i + 2]
-    elif big_bush < berrys[i] + berrys[i - 1] + berrys[i - 2]:
+    if big_bush < berrys[i] + berrys[i - 1] + berrys[i - 2]:
         big_bush = berrys[i] + berrys[i - 1] + berrys[i - 2]
     big_bushes.append(big_bush)
 
