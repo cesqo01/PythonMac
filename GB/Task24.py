@@ -13,14 +13,17 @@
 
 import random
 
-sum_bush = random.randint(5, 10)
+sum_bush = random.randint(1, 20)
 print(sum_bush)
 berrys = []
 for _ in range(sum_bush):
-    berrys.append(random.randint(5, 15))
+    berrys.append(random.randint(1, 10))
 print(berrys)
 big_bushes = []
 big_bush = 0
+if sum_bush < 4:
+    print(sum(berrys))
+    exit()
 for i in range(len(berrys)):
     if i == 0:
         if berrys[i] + berrys[i + 1] + berrys[i + 2] > berrys[i] + berrys[i + 1] + berrys[len(berrys) - 1]:
