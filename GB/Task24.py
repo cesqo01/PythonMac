@@ -13,7 +13,7 @@
 
 import random
 
-sum_bush = random.randint(1, 20)
+sum_bush = random.randint(5, 11)
 print(sum_bush)
 berrys = []
 for _ in range(sum_bush):
@@ -26,37 +26,48 @@ if sum_bush < 4:
     exit()
 for i in range(len(berrys)):
     if i == 0:
-        if berrys[i] + berrys[i + 1] + berrys[i + 2] > berrys[i] + berrys[i + 1] + berrys[len(berrys) - 1]:
+        if berrys[i] + berrys[i + 1] + berrys[i + 2] >= berrys[i] + berrys[i + 1] + berrys[len(berrys) - 1]:
             big_bush = berrys[i] + berrys[i + 1] + berrys[i + 2]
-        if big_bush < berrys[i] + berrys[len(berrys) - 1] + berrys[len(berrys) - 2]:
+        else:
+            big_bush = berrys[i] + berrys[i + 1] + berrys[len(berrys) - 1]
+        if big_bush <= berrys[i] + berrys[len(berrys) - 1] + berrys[len(berrys) - 2]:
             big_bush = berrys[i] + \
                 berrys[len(berrys) - 1] + berrys[len(berrys) - 2]
         big_bushes.append(big_bush)
     elif i == 1:
-        if berrys[i] + berrys[i + 1] + berrys[i + 2] > berrys[i] + berrys[i + 1] + berrys[i - 1]:
+        if berrys[i] + berrys[i + 1] + berrys[i + 2] >= berrys[i] + berrys[i + 1] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[i + 1] + berrys[i + 2]
-        if big_bush < berrys[i] + berrys[len(berrys) - 1] + berrys[i - 1]:
+        else:
+            big_bush = berrys[i] + berrys[i + 1] + berrys[i - 1]
+        if big_bush <= berrys[i] + berrys[len(berrys) - 1] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[i] + \
                 berrys[len(berrys) - 1] + berrys[i - 1]
         big_bushes.append(big_bush)
     elif i == len(berrys) - 1:
-        if berrys[i] + berrys[0] + berrys[1] > berrys[i] + berrys[0] + berrys[i - 1]:
+        if berrys[i] + berrys[0] + berrys[1] >= berrys[i] + berrys[0] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[0] + berrys[1]
-        if big_bush < berrys[i] + berrys[i - 2] + berrys[i - 1]:
+        else:
+            big_bush = berrys[i] + berrys[0] + berrys[i - 1]
+        if big_bush <= berrys[i] + berrys[i - 2] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[i - 2] + berrys[i - 1]
         big_bushes.append(big_bush)
     elif i == len(berrys) - 2:
-        if berrys[i] + berrys[i + 1] + berrys[0] > berrys[i] + berrys[i + 1] + berrys[i - 1]:
+        if berrys[i] + berrys[i + 1] + berrys[0] >= berrys[i] + berrys[i + 1] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[0] + berrys[i + 1]
-        if big_bush < berrys[i] + berrys[i - 2] + berrys[i - 1]:
+        else:
+            big_bush = berrys[i] + berrys[i + 1] + berrys[i - 1]
+        if big_bush <= berrys[i] + berrys[i - 2] + berrys[i - 1]:
             big_bush = berrys[i] + berrys[i - 2] + berrys[i - 1]
         big_bushes.append(big_bush)
 
-    elif berrys[i] + berrys[i + 1] + berrys[i + 2] > berrys[i] + berrys[i + 1] + berrys[i - 1]:
-        big_bush = berrys[i] + berrys[i + 1] + berrys[i + 2]
-    if big_bush < berrys[i] + berrys[i - 1] + berrys[i - 2]:
-        big_bush = berrys[i] + berrys[i - 1] + berrys[i - 2]
-    big_bushes.append(big_bush)
+    else:
+        if berrys[i] + berrys[i + 1] + berrys[i + 2] >= berrys[i] + berrys[i + 1] + berrys[i - 1]:
+            big_bush = berrys[i] + berrys[i + 1] + berrys[i + 2]
+        else:
+            big_bush = berrys[i] + berrys[i + 1] + berrys[i - 1]
+        if big_bush <= berrys[i] + berrys[i - 1] + berrys[i - 2]:
+            big_bush = berrys[i] + berrys[i - 1] + berrys[i - 2]
+        big_bushes.append(big_bush)
 
 print(big_bushes)
 print(set(big_bushes))
